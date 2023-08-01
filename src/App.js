@@ -1,15 +1,14 @@
 import "./App.css"
-import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
+import { Cards } from "./Components/Cards";
 
-
-export default function App() {
+ function App() {
   const data = [
     {
       productImage: "https://www.kalyanjewellers.net/images/menu-banner/jewellery/gold-2.jpg",
       productName: "Fancy Product",
+      span: "⭐",
       price: "$40.00-$80.00",
       button:"Add Cart",
      
@@ -29,6 +28,7 @@ export default function App() {
       productImage:
         "https://cdn.shopify.com/s/files/1/2961/7182/products/image_43b0ccd5-6c7d-4486-927c-c205dbfc428f.png?v=1666308677",
       productName: "Sale Item ",
+      span: "⭐",
       price3: "$50.00", price4: "$25.00",
       button: "Add Cart",
       sale: "Sale"
@@ -44,6 +44,7 @@ export default function App() {
     {
       productImage: "https://rukminim1.flixcart.com/image/416/416/jjkbhjk0/kit/e/z/f/cricket-world-storm-red-premium-nine-9-item-most-essential-original-imaf6v6vwhzbwnyr.jpeg?q=70",
       productName: "Sale Item ",
+      span: "⭐",
       price5: "$50.00", price6: "$25.00",
       button: "Add Cart",
       sale: "Sale"
@@ -52,6 +53,7 @@ export default function App() {
       productImage:
         "https://dillibazar.in/wp-content/uploads/FB_IMG_1449484704641.jpg",
       productName: "Fancy Product",
+      span: "⭐",
       price: "$120.00 - $280.00",
       button: "Add Cart"
     },
@@ -77,6 +79,7 @@ export default function App() {
   return (
 
     <div className="App">
+    
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container px-4 px-lg-5">
           <a className="navbar-brand" href="#!">Start Bootstrap</a>
@@ -139,58 +142,5 @@ export default function App() {
     </div>
   );
 }
-function Cards({ prod, idx, setcount, count }) {
-  const [show, setshow] = useState(false);
-  function addToCart() {
-    setshow(!show)
-    setcount(count + 1)
-  }
-  function removeToCart() {
-    setshow(!show)
-    setcount(count - 1)
-  }
-  return (
-    <Card key={idx} style={{ width: '18rem' }}>
 
-      <Card.Img variant="top" className="role" src={prod.productImage} />
-      <Card.Body>
-        <Card.Title>{prod.productName}</Card.Title>
-        <div className="d-flex justify-content-center small text-warning mb-2">
-          <div className=" rope">{prod.span}</div>
-          <div className=" rope">{prod.span}</div>
-          <div className="rope">{prod.span}</div>
-          <div className="rope ">{prod.span}</div>
-          <div className="rope ">{prod.span}</div>
-        </div>
-        <Card.Text>{prod.price}</Card.Text>
-        <Card.Text >
-          <span className="text-muted text-decoration-line-through">{prod.price1}</span>
-          <span> {prod.price2}</span>
-          <div className="badge bg-dark text-white position-absolute">{prod.sale}</div>
-        </Card.Text>
-        <Card.Text >
-          <span className="text-muted text-decoration-line-through">{prod.price3}</span>
-          <span> {prod.price4}</span>
-          <div className="badge bg-dark text-white position-absolute">{prod.sale}</div>
-        </Card.Text>
-        <Card.Text >
-          <span className="text-muted text-decoration-line-through">{prod.price5}</span>
-          <span> {prod.price6}</span>
-          <div className="badge bg-dark text-white position-absolute">{prod.sale}</div>
-        </Card.Text>
-        <Card.Text >
-          <span className="text-muted text-decoration-line-through">{prod.price7}</span>
-          <span> {prod.price8}</span>
-          <div className="badge bg-dark text-white position-absolute">{prod.sale}</div>
-        </Card.Text>
-
-
-
-        {!show ? <Button className="roll" variant="primary" onClick={addToCart}>{prod.button}{prod.button1}</Button> : ""}
-        {show ? <Button variant="danger" onClick={removeToCart} >Remove Cart</Button> : ""}
-
-      </Card.Body>
-    </Card>
-
-  )
-}
+export default App;
